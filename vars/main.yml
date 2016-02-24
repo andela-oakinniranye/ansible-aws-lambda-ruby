@@ -1,0 +1,10 @@
+app_name:                     hello-ruby
+app_version:                  1.0.0
+ruby_version:                 2.2.2
+target_os:                    linux-x86_64
+traveling_ruby_version:       "20150715"
+traveling_ruby_url:           http://d6r77u77i8pq3.cloudfront.net/releases/traveling-ruby-{{ traveling_ruby_version }}-{{ ruby_version }}-{{ target_os }}.tar.gz
+aws_profile:                  lambda
+build_dir:                    /tmp/aws-lambda-ruby-build
+package_file:                 /tmp/{{ app_name }}.zip
+aws_role_arn:                 arn:aws:iam::...              # Enter the ARN of the Lambda execution role here.

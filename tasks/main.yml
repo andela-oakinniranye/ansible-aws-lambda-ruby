@@ -1,0 +1,49 @@
+- name: delete build dir
+  local_action: file path={{ build_dir }} state=absent
+
+- name: create ruby and vendor dirs
+  local_action: file path={{ build_dir }}/{{ item }} state=directory
+  with_items:
+    - ruby
+    - vendor/.bundle
+
+- name: extract traveling ruby to ruby dir
+  local_action: unarchive src={{ traveling_ruby_url }} dest={{ build_dir }}/ruby copy=no
+
+- name: copy app file, shell wrapper and js wapper to lib dir
+  local_action: copy src={{ item }} dest={{ build_dir }}
+  with_items:
+    - app.rb
+    - wrapper.sh
+    - index.js
+
+- name: make sure shell wrapper is executable
+  local_action: file path={{ build_dir }}/wrapper.sh mode=0777
+
+- name: copy Gemfile to vendor dir
+  local_action: copy src=Gemfile dest={{ build_dir }}/vendor
+
+- name: copy Bundler config to vendor dir
+  local_action: copy src=bundler-config dest={{ build_dir }}/vendor/.bundle/config
+
+- name: install gems
+  local_action: shell BUNDLE_IGNORE_CONFIG=1 bundle install --without development chdir={{ build_dir }}/vendor
+
+- name: make sure Gemfile.lock is writable
+  local_action: file path={{ build_dir }}/vendor/Gemfile.lock mode=0666
+
+- name: delete package
+  local_action: file path={{ package_file }} state=absent
+
+- name: create package
+  local_action: shell find . | zip {{ package_file }} -@ chdir={{ build_dir }}
+
+- name: create lambda function
+  lambda:
+    name: "{{ app_name }}"
+    state: present
+    path: "{{ package_file }}"
+    runtime: nodejs
+    role_arn: "{{ aws_role_arn }}"
+    handler: index.handler
+    timeout: 300
