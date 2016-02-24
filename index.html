@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ansible AWS Lambda Ruby by krautcomputing</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ansible AWS Lambda Ruby</h1>
+        <p>Ansible role to package a Ruby script within a AWS Lambda function</p>
+
+        <p class="view"><a href="https://github.com/krautcomputing/ansible-aws-lambda-ruby">View the Project on GitHub <small>krautcomputing/ansible-aws-lambda-ruby</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/krautcomputing/ansible-aws-lambda-ruby/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/krautcomputing/ansible-aws-lambda-ruby/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/krautcomputing/ansible-aws-lambda-ruby">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="ansible-aws-lambda-ruby" class="anchor" href="#ansible-aws-lambda-ruby" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ansible AWS Lambda Ruby</h1>
+
+<p>This is an Ansible role I created to play around with <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> and package up a Ruby script to be executed by a Lambda function. <a href="http://phusion.github.io/traveling-ruby/">Traveling Ruby</a> is used to include the Ruby runtime in the package.</p>
+
+<p><a href="https://github.com/ansible/ansible-modules-extras/pull/1270">The Ansible AWS Lambda module is not yet included in core</a>, so for now it must be present in any playbook that uses this role. <a href="https://github.com/krautcomputing/ansible-aws-lambda-ruby-test">Here is an example playbook I used to test this role</a>.</p>
+
+<p>I sure hope AWS Lambda supports Ruby natively soon!</p>
+
+<h2>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h2>
+
+<p>This code based on the projects of <a href="https://github.com/qrush">qrush</a> and <a href="https://github.com/lorennorman">lorennorman</a> who did the bulk of the work:</p>
+
+<ul>
+<li><a href="https://github.com/qrush/lambda-function-wrapper-ruby">https://github.com/qrush/lambda-function-wrapper-ruby</a></li>
+<li><a href="https://github.com/lorennorman/ruby-on-lambda">https://github.com/lorennorman/ruby-on-lambda</a></li>
+</ul>
+
+<p>I simply took the Shell scripts they wrote and packaged them up in an Ansible role since this is what I like to use to automate stuff.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/krautcomputing">krautcomputing</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
