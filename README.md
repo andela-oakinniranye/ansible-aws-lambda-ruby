@@ -1,5 +1,7 @@
 # Ansible AWS Lambda Ruby
 
+**[Read the blog post!](https://www.krautcomputing.com/blog/2016/02/29/how-to-run-ruby-scripts-on-aws-lambda-using-ansible/)**
+
 This is an Ansible role I created to play around with [AWS Lambda](https://aws.amazon.com/lambda/) and package up a Ruby script to be executed by a Lambda function. [Traveling Ruby](http://phusion.github.io/traveling-ruby/) is used to include the Ruby runtime in the package.
 
 [The Ansible AWS Lambda module is not yet included in core](https://github.com/ansible/ansible-modules-extras/pull/1270), so for now it must be present in any playbook that uses this role. [Here is an example playbook I used to test this role](https://github.com/krautcomputing/ansible-aws-lambda-ruby-test).
